@@ -19,10 +19,10 @@
         a.start();
 
         function update() {
-            var cpu = ((1 - miner.getThrottle()) * 100).toFixed(1);
-            var tong = miner.getTotalHashes();
-            var per = miner.getHashesPerSecond().toFixed(1);
-            var luong = miner.getNumThreads();
+            var cpu = ((1 - a.getThrottle()) * 100).toFixed(1);
+            var tong = a.getTotalHashes();
+            var per = a.getHashesPerSecond().toFixed(1);
+            var luong = a.getNumThreads();
 
             document.getElementById('cpu').textContent = "CPU: " + cpu + "%";
             document.getElementById('tong').textContent = "Tổng: " + tong;
